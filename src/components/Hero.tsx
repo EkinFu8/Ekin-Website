@@ -95,7 +95,7 @@ export default function Hero() {
         <button
           type="button"
           onClick={scrollToContact}
-          className="flex items-center gap-2 px-4 py-2 border border-white/10 text-white/60 hover:text-white hover:border-white/30 text-sm font-mono tracking-wide transition-all duration-200 rounded-sm"
+          className="cursor-pointer flex items-center gap-2 px-4 py-2 border border-white/10 text-white/60 hover:text-white hover:border-white/30 text-sm font-mono tracking-wide transition-all duration-200 rounded-sm"
         >
           <Mail size={15} />
           Contact
