@@ -1,12 +1,14 @@
-import FadeIn from "./FadeIn";
 import { SKILLS } from "../data";
+import FadeIn from "./FadeIn";
 
 export default function Skills() {
   return (
     <section id="skills" className="py-32 px-6 max-w-6xl mx-auto">
       <FadeIn>
         <div className="flex items-baseline gap-6 mb-16">
-          <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">02 / Skills</h2>
+          <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">
+            02 / Skills
+          </h2>
           <div className="h-px flex-1 bg-white/5" />
         </div>
       </FadeIn>
@@ -20,7 +22,10 @@ export default function Skills() {
               </h3>
               <ul className="space-y-2">
                 {group.items.map((item) => (
-                  <li key={item} className="text-white/60 text-sm font-light flex items-center gap-2">
+                  <li
+                    key={item}
+                    className="text-white/60 text-sm font-light flex items-center gap-2"
+                  >
                     <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0" />
                     {item}
                   </li>

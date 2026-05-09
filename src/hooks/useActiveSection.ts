@@ -5,9 +5,9 @@ export function useActiveSection() {
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const sections = NAV_LINKS
-      .map((n) => document.getElementById(n.toLowerCase()))
-      .filter(Boolean) as HTMLElement[];
+    const sections = NAV_LINKS.map((n) => document.getElementById(n.toLowerCase())).filter(
+      Boolean
+    ) as HTMLElement[];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -18,7 +18,9 @@ export function useActiveSection() {
       { rootMargin: "-40% 0px -55% 0px" }
     );
 
-    sections.forEach((s) => observer.observe(s));
+    for (const s of sections) {
+      observer.observe(s);
+    }
     return () => observer.disconnect();
   }, []);
 

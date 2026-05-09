@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Mail, FileText } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
-import { useTypingEffect } from "../hooks/useTypingEffect";
+import { FileText, Mail } from "lucide-react";
 import { TYPING_PHRASES } from "../data";
+import { useTypingEffect } from "../hooks/useTypingEffect";
+import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
 
 export default function Hero() {
   const typed = useTypingEffect(TYPING_PHRASES);
@@ -60,7 +60,8 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.45 }}
         className="text-white/40 text-base md:text-lg max-w-xl leading-relaxed mb-12 font-light"
       >
-        Junior CS student at WPI building full-stack applications, backend systems, and developer tooling.
+        Junior CS student at WPI building full-stack applications, backend systems, and developer
+        tooling.
       </motion.p>
 
       <motion.div
@@ -70,7 +71,12 @@ export default function Hero() {
         className="flex flex-wrap gap-3"
       >
         {[
-          { label: "GitHub", icon: <GithubIcon size={15} />, href: "https://github.com/EkinFu8", external: true },
+          {
+            label: "GitHub",
+            icon: <GithubIcon size={15} />,
+            href: "https://github.com/EkinFu8",
+            external: true,
+          },
           { label: "LinkedIn", icon: <LinkedinIcon size={15} />, href: "#", external: true },
           { label: "Resume", icon: <FileText size={15} />, href: "/resume.pdf", external: true },
         ].map(({ label, icon, href }) => (
@@ -87,6 +93,7 @@ export default function Hero() {
         ))}
 
         <button
+          type="button"
           onClick={scrollToContact}
           className="flex items-center gap-2 px-4 py-2 border border-white/10 text-white/60 hover:text-white hover:border-white/30 text-sm font-mono tracking-wide transition-all duration-200 rounded-sm"
         >

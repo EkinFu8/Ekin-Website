@@ -1,14 +1,16 @@
 import { ExternalLink } from "lucide-react";
-import { GithubIcon } from "./icons/BrandIcons";
-import FadeIn from "./FadeIn";
 import { PROJECTS } from "../data";
+import FadeIn from "./FadeIn";
+import { GithubIcon } from "./icons/BrandIcons";
 
 export default function Projects() {
   return (
     <section id="projects" className="py-32 px-6 max-w-6xl mx-auto">
       <FadeIn>
         <div className="flex items-baseline gap-6 mb-16">
-          <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">01 / Projects</h2>
+          <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">
+            01 / Projects
+          </h2>
           <div className="h-px flex-1 bg-white/5" />
         </div>
       </FadeIn>
@@ -18,13 +20,21 @@ export default function Projects() {
           <FadeIn key={project.title} delay={i * 0.1}>
             <div className="bg-[#0a0a0a] p-8 h-full flex flex-col group hover:bg-white/[0.02] transition-colors duration-300">
               <div className="flex items-start justify-between mb-6">
-                <span className="font-mono text-xs text-white/20">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-xs text-white/20">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <div className="flex gap-3">
-                  <a href={project.github} className="text-white/20 hover:text-white transition-colors">
+                  <a
+                    href={project.github}
+                    className="text-white/20 hover:text-white transition-colors"
+                  >
                     <GithubIcon size={15} />
                   </a>
                   {project.demo && (
-                    <a href={project.demo} className="text-white/20 hover:text-white transition-colors">
+                    <a
+                      href={project.demo}
+                      className="text-white/20 hover:text-white transition-colors"
+                    >
                       <ExternalLink size={15} />
                     </a>
                   )}
@@ -42,7 +52,9 @@ export default function Projects() {
               >
                 {project.title}
               </h3>
-              <p className="text-white/35 text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
+              <p className="text-white/35 text-sm leading-relaxed mb-6 flex-1">
+                {project.description}
+              </p>
 
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (

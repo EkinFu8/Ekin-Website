@@ -1,13 +1,15 @@
-import { Mail, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
+import { ArrowUpRight, Mail } from "lucide-react";
 import FadeIn from "./FadeIn";
+import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
 
 export default function Contact() {
   return (
     <section id="contact" className="py-32 px-6 max-w-6xl mx-auto">
       <FadeIn>
         <div className="flex items-baseline gap-6 mb-16">
-          <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">04 / Contact</h2>
+          <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">
+            04 / Contact
+          </h2>
           <div className="h-px flex-1 bg-white/5" />
         </div>
       </FadeIn>
@@ -21,15 +23,23 @@ export default function Contact() {
             Let's work together.
           </h3>
           <p className="text-white/35 text-base leading-relaxed mb-12">
-            I'm actively looking for internship opportunities. Feel free to reach out — whether it's about a
-            role, a project, or just to chat.
+            I'm actively looking for internship opportunities. Feel free to reach out — whether it's
+            about a role, a project, or just to chat.
           </p>
 
           <div className="space-y-4">
             {[
-              { icon: <Mail size={15} />, label: "ekinchau@gmail.com", href: "mailto:ekinchau@gmail.com" },
+              {
+                icon: <Mail size={15} />,
+                label: "ekinchau@gmail.com",
+                href: "mailto:ekinchau@gmail.com",
+              },
               { icon: <LinkedinIcon size={15} />, label: "linkedin.com/in/ekinchau", href: "#" },
-              { icon: <GithubIcon size={15} />, label: "github.com/EkinFu8", href: "https://github.com/EkinFu8" },
+              {
+                icon: <GithubIcon size={15} />,
+                label: "github.com/EkinFu8",
+                href: "https://github.com/EkinFu8",
+              },
             ].map(({ icon, label, href }) => (
               <a
                 key={label}
@@ -42,7 +52,10 @@ export default function Contact() {
                   {icon}
                   <span className="font-mono text-sm">{label}</span>
                 </div>
-                <ArrowUpRight size={14} className="text-white/15 group-hover:text-white/40 transition-colors" />
+                <ArrowUpRight
+                  size={14}
+                  className="text-white/15 group-hover:text-white/40 transition-colors"
+                />
               </a>
             ))}
           </div>

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { NAV_LINKS } from "../data";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -32,6 +32,7 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <button
+            type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="cursor-pointer font-mono text-sm text-white/70 hover:text-white transition-colors tracking-widest uppercase"
           >
@@ -40,6 +41,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <button
+                type="button"
                 key={link}
                 onClick={() => scrollTo(link)}
                 className={`cursor-pointer text-sm font-mono tracking-wide transition-colors ${
@@ -50,7 +52,11 @@ export default function Navbar() {
               </button>
             ))}
           </div>
-          <button onClick={() => setOpen(!open)} className="cursor-pointer md:hidden text-white/60 hover:text-white">
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            className="cursor-pointer md:hidden text-white/60 hover:text-white"
+          >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -67,6 +73,7 @@ export default function Navbar() {
           >
             {NAV_LINKS.map((link) => (
               <button
+                type="button"
                 key={link}
                 onClick={() => scrollTo(link)}
                 className="cursor-pointer text-3xl font-mono text-white/60 hover:text-white transition-colors"

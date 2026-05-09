@@ -12,21 +12,24 @@ export const TYPING_PHRASES = [
 export const PROJECTS: Project[] = [
   {
     title: "Project Alpha",
-    description: "A placeholder for your most impressive project. Drop in a short description of what it does and the problem it solves.",
+    description:
+      "A placeholder for your most impressive project. Drop in a short description of what it does and the problem it solves.",
     tags: ["React", "TypeScript", "PostgreSQL"],
     github: "#",
     demo: null,
   },
   {
     title: "Project Beta",
-    description: "Another featured project. Highlight the architecture, scale, or interesting technical decisions you made.",
+    description:
+      "Another featured project. Highlight the architecture, scale, or interesting technical decisions you made.",
     tags: ["Node.js", "Express", "Prisma"],
     github: "#",
     demo: "#",
   },
   {
     title: "Project Gamma",
-    description: "A third project slot. Could be an algorithm project, CLI tool, or anything else you're proud of.",
+    description:
+      "A third project slot. Could be an algorithm project, CLI tool, or anything else you're proud of.",
     tags: ["Java", "Python", "SQL"],
     github: "#",
     demo: null,
