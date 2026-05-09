@@ -11,10 +11,19 @@ export const TYPING_PHRASES = [
 
 export const PROJECTS: Project[] = [
   {
-    title: "Project Alpha",
+    title: "Hanover Insurance Web Application",
     description:
-      "A placeholder for your most impressive project. Drop in a short description of what it does and the problem it solves.",
-    tags: ["React", "TypeScript", "PostgreSQL"],
+      "Built and deployed a full-stack cloud-hosted web application for Hanover Insurance on a 10-person Agile team. Included a content management system, user and role management, login authentication, data analytics, and a customizable dashboard.",
+    tags: [
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Node.js",
+      "Express",
+      "Tailwind",
+      "Railway",
+    ],
     github: "#",
     demo: null,
   },
