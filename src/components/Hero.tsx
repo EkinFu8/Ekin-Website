@@ -4,6 +4,57 @@ import { TYPING_PHRASES } from "../data";
 import { useTypingEffect } from "../hooks/useTypingEffect";
 import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
 
+interface IconButtonProps {
+  icon: React.ReactNode;
+  label: string;
+  href?: string;
+  onClick?: () => void;
+  external?: boolean;
+}
+
+function IconButton({ icon, label, href, onClick, external }: IconButtonProps) {
+  const baseClass =
+    "relative group flex items-center justify-center w-10 h-10 border border-white/10 text-white/40 hover:text-white hover:border-white/40 hover:bg-white/5 active:scale-95 active:bg-white/10 transition-all duration-150 rounded-sm cursor-pointer";
+
+  const tooltip = (
+    <span
+      className="
+        pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2
+        font-mono text-[10px] tracking-widest uppercase text-white/60
+        bg-[#0a0a0a] border border-white/10 px-2 py-1 rounded-sm whitespace-nowrap
+        opacity-0 translate-y-1
+        group-hover:opacity-100 group-hover:translate-y-0
+        transition-all duration-200 ease-out
+        z-50
+      "
+    >
+      {label}
+    </span>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        className={baseClass}
+        aria-label={label}
+      >
+        {icon}
+        {tooltip}
+      </a>
+    );
+  }
+
+  return (
+    <button type="button" onClick={onClick} className={baseClass} aria-label={label}>
+      {icon}
+      {tooltip}
+    </button>
+  );
+}
+
 export default function Hero() {
   const typed = useTypingEffect(TYPING_PHRASES);
 
@@ -68,38 +119,18 @@ export default function Hero() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.55 }}
-        className="flex flex-wrap gap-3"
+        className="flex items-center gap-2"
       >
-        {[
-          {
-            label: "GitHub",
-            icon: <GithubIcon size={15} />,
-            href: "https://github.com/EkinFu8",
-            external: true,
-          },
-          { label: "LinkedIn", icon: <LinkedinIcon size={15} />, href: "#", external: true },
-          { label: "Resume", icon: <FileText size={15} />, href: "/resume.pdf", external: true },
-        ].map(({ label, icon, href }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 border border-white/10 text-white/60 hover:text-white hover:border-white/30 text-sm font-mono tracking-wide transition-all duration-200 rounded-sm"
-          >
-            {icon}
-            {label}
-          </a>
-        ))}
+        <IconButton
+          icon={<GithubIcon size={16} />}
+          label="GitHub"
+          href="https://github.com/EkinFu8"
+          external
+        />
+        <IconButton icon={<LinkedinIcon size={16} />} label="LinkedIn" href="#" external />
+        <IconButton icon={<FileText size={16} />} label="Resume" href="/resume.pdf" external />
 
-        <button
-          type="button"
-          onClick={scrollToContact}
-          className="cursor-pointer flex items-center gap-2 px-4 py-2 border border-white/10 text-white/60 hover:text-white hover:border-white/30 text-sm font-mono tracking-wide transition-all duration-200 rounded-sm"
-        >
-          <Mail size={15} />
-          Contact
-        </button>
+        <IconButton icon={<Mail size={16} />} label="Contact" onClick={scrollToContact} />
       </motion.div>
 
       {/* Scroll indicator */}

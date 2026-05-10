@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PROJECTS } from "../data";
+import { useScrollToTopOnMount } from "../hooks/useScrollRestoration";
 import FadeIn from "./FadeIn";
 import { GithubIcon } from "./icons/BrandIcons";
 
@@ -26,6 +27,9 @@ export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const project = PROJECTS.find((p) => p.slug === slug);
+
+  // Always scroll to top when this page mounts — prevents inheriting home page scroll position
+  useScrollToTopOnMount();
 
   if (!project?.detail) {
     return (
