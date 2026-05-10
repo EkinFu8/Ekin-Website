@@ -7,8 +7,14 @@ import Navbar from "./components/Navbar";
 import ProjectDetail from "./components/ProjectDetail";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import { useRestoreScrollPosition, useSaveScrollPosition } from "./hooks/useScrollRestoration";
 
 function Home() {
+  // Save scroll position continuously so navigating away preserves it
+  useSaveScrollPosition();
+  // Restore scroll position when returning to home (clears after restoring)
+  useRestoreScrollPosition();
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       <Navbar />
