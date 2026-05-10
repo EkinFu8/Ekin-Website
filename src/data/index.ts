@@ -90,8 +90,28 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: SkillGroup[] = [
-  { category: "Frontend", items: ["React", "TypeScript", "Tailwind", "Vite"] },
-  { category: "Backend", items: ["Node.js", "Express", "tRPC", "Prisma"] },
-  { category: "Database / Cloud", items: ["PostgreSQL", "Supabase", "Vercel"] },
-  { category: "Languages", items: ["TypeScript", "Java", "Python", "SQL"] },
+  {
+    category: "Frontend",
+    items: ["React", "TypeScript", "Tailwind", "Vite", "HTML"],
+  },
+
+  {
+    category: "Backend",
+    items: ["Node.js", "Express", "tRPC", "Prisma"],
+  },
+
+  {
+    category: "Database / Cloud",
+    items: ["PostgreSQL", "MongoDB", "Docker", "AWS"],
+  },
+
+  {
+    category: "Languages",
+    items: ["Java", "Python", "C", "C++", "TypeScript"],
+  },
+
+  {
+    category: "Tools & DevOps",
+    items: ["Git", "GitHub"],
+  },
 ];
