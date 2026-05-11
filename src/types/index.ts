@@ -8,10 +8,15 @@ export interface Project {
   detail?: ProjectDetail;
 }
 
-export interface SkillGroup {
+export type SkillItem = {
+  name: string;
+  logo: string;
+};
+
+export type SkillGroup = {
   category: string;
-  items: string[];
-}
+  items: SkillItem[];
+};
 
 export interface ProjectDetail {
   subtitle: string;

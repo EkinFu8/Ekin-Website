@@ -92,26 +92,47 @@ export const PROJECTS: Project[] = [
 export const SKILLS: SkillGroup[] = [
   {
     category: "Frontend",
-    items: ["React", "TypeScript", "Tailwind", "Vite", "HTML"],
+    items: [
+      { name: "React", logo: "react-original.svg" },
+      { name: "TypeScript", logo: "typescript-original.svg" },
+      { name: "Tailwind", logo: "tailwindcss-original.svg" },
+      { name: "Vite", logo: "vitejs-original.svg" },
+      { name: "HTML", logo: "html5-original.svg" },
+    ],
   },
-
   {
     category: "Backend",
-    items: ["Node.js", "Express", "tRPC", "Prisma"],
+    items: [
+      { name: "Node.js", logo: "nodejs-original.svg" },
+      { name: "Express", logo: "express-original.svg" },
+      { name: "tRPC", logo: "trpc-original.svg" },
+      { name: "Prisma", logo: "prisma-original.svg" },
+    ],
   },
-
   {
     category: "Database / Cloud",
-    items: ["PostgreSQL", "MongoDB", "Docker", "AWS"],
+    items: [
+      { name: "PostgreSQL", logo: "postgresql-original.svg" },
+      { name: "MongoDB", logo: "mongodb-original.svg" },
+      { name: "Docker", logo: "docker-plain.svg" },
+      { name: "AWS", logo: "amazonwebservices-plain-wordmark.svg" },
+    ],
   },
-
   {
     category: "Languages",
-    items: ["Java", "Python", "C", "C++", "TypeScript"],
+    items: [
+      { name: "Java", logo: "java-original.svg" },
+      { name: "Python", logo: "python-original.svg" },
+      { name: "C", logo: "c-original.svg" },
+      { name: "C++", logo: "cplusplus-original.svg" },
+      { name: "TypeScript", logo: "typescript-original.svg" },
+    ],
   },
-
   {
     category: "Tools & DevOps",
-    items: ["Git", "GitHub"],
+    items: [
+      { name: "Git", logo: "git-original.svg" },
+      { name: "GitHub", logo: "github-original.svg" },
+    ],
   },
 ];
