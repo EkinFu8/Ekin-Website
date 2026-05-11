@@ -1,4 +1,3 @@
-// src/components/Projects.tsx  — drop-in replacement
 import { ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { PROJECTS } from "../data";

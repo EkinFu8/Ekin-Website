@@ -1,5 +1,3 @@
-// src/components/Hero.tsx  — drop-in replacement
-
 import { motion } from "framer-motion";
 import { FileText, Mail } from "lucide-react";
 import { useTypingEffect } from "../hooks/useTypingEffect";

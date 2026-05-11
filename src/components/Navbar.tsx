@@ -1,5 +1,3 @@
-// src/components/Navbar.tsx  — drop-in replacement
-// Only changes: bg-[#0a0a0a] → var(--bg) / var(--bg-card)
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";

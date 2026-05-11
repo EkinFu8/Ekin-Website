@@ -1,5 +1,3 @@
-// src/components/Tag.tsx
-
 type TagProps = {
   children: string;
 };
