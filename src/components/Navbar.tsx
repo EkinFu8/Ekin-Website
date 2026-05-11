@@ -27,60 +27,70 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/5" : "bg-transparent"
+          scrolled ? "backdrop-blur-md border-b border-white/5" : "bg-transparent"
         }`}
+        style={scrolled ? { backgroundColor: "rgba(8,11,16,0.90)" } : undefined}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          {/* Logo */}
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="cursor-pointer font-mono text-sm text-white/70 hover:text-white transition-colors tracking-widest uppercase"
+            className="font-mono text-sm text-white/50 hover:text-white transition-colors cursor-pointer"
           >
             Ekin Chau
           </button>
-          <div className="hidden md:flex items-center gap-8">
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <button
-                type="button"
                 key={link}
+                type="button"
                 onClick={() => scrollTo(link)}
-                className={`cursor-pointer text-sm font-mono tracking-wide transition-colors ${
-                  active === link.toLowerCase() ? "text-white" : "text-white/40 hover:text-white/80"
+                className={`font-mono text-xs tracking-widest uppercase transition-colors cursor-pointer ${
+                  active === link.toLowerCase() ? "text-white" : "text-white/30 hover:text-white/70"
                 }`}
               >
                 {link}
               </button>
             ))}
-          </div>
+          </nav>
+
+          {/* Mobile hamburger */}
           <button
             type="button"
-            onClick={() => setOpen(!open)}
-            className="cursor-pointer md:hidden text-white/60 hover:text-white"
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden text-white/40 hover:text-white transition-colors"
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </motion.nav>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col items-center justify-center gap-10"
+            className="fixed top-16 left-0 right-0 z-40 border-b border-white/5 backdrop-blur-md"
+            style={{ backgroundColor: "rgba(8,11,16,0.95)" }}
           >
-            {NAV_LINKS.map((link) => (
-              <button
-                type="button"
-                key={link}
-                onClick={() => scrollTo(link)}
-                className="cursor-pointer text-3xl font-mono text-white/60 hover:text-white transition-colors"
-              >
-                {link}
-              </button>
-            ))}
+            <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3">
+              {NAV_LINKS.map((link) => (
+                <button
+                  key={link}
+                  type="button"
+                  onClick={() => scrollTo(link)}
+                  className="font-mono text-xs tracking-widest uppercase text-white/40 hover:text-white transition-colors text-left"
+                >
+                  {link}
+                </button>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
