@@ -5,6 +5,7 @@ import { PROJECTS } from "../data";
 import { useScrollToTopOnMount } from "../hooks/useScrollRestoration";
 import FadeIn from "./FadeIn";
 import { GithubIcon } from "./icons/BrandIcons";
+import Tag from "./Tag";
 
 function BoldText({ text, className }: { text: string; className: string }) {
   const parts = text.split(/\*\*(.*?)\*\*/g);
@@ -117,14 +118,11 @@ export default function ProjectDetail() {
             {project.title}
           </h1>
           <div className="flex flex-wrap gap-2 mb-16">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="font-mono text-[10px] text-white/30 border border-white/8 px-2 py-0.5 rounded-sm tracking-wide"
-              >
-                {tag}
-              </span>
-            ))}
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </div>
           </div>
         </FadeIn>
 

@@ -1,4 +1,7 @@
+// src/App.tsx
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -7,23 +10,29 @@ import Navbar from "./components/Navbar";
 import ProjectDetail from "./components/ProjectDetail";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+
 import { useRestoreScrollPosition, useSaveScrollPosition } from "./hooks/useScrollRestoration";
 
 function Home() {
-  // Save scroll position continuously so navigating away preserves it
   useSaveScrollPosition();
-  // Restore scroll position when returning to home (clears after restoring)
   useRestoreScrollPosition();
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
-      <Navbar />
-      <Hero />
-      <Projects />
-      <Skills />
-      <About />
-      <Contact />
-      <Footer />
+    <main className="relative min-h-screen overflow-hidden bg-[var(--bg)] text-white">
+      {/* Ambient Background */}
+      <div className="bg-mesh" aria-hidden="true" />
+      <div className="bg-dots" aria-hidden="true" />
+
+      {/* Site Content */}
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Projects />
+        <Skills />
+        <About />
+        <Contact />
+        <Footer />
+      </div>
     </main>
   );
 }

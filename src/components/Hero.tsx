@@ -1,27 +1,39 @@
+// src/components/Hero.tsx  — drop-in replacement
+
 import { motion } from "framer-motion";
 import { FileText, Mail } from "lucide-react";
-import { TYPING_PHRASES } from "../data";
 import { useTypingEffect } from "../hooks/useTypingEffect";
 import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
+
+const TYPING_PHRASES = [
+  "systems engineer.",
+  "full-stack developer.",
+  "backend builder.",
+  "CS student @ WPI.",
+];
 
 interface IconButtonProps {
   icon: React.ReactNode;
   label: string;
   href?: string;
-  onClick?: () => void;
   external?: boolean;
+  onClick?: () => void;
 }
 
-function IconButton({ icon, label, href, onClick, external }: IconButtonProps) {
-  const baseClass =
-    "relative group flex items-center justify-center w-10 h-10 border border-white/10 text-white/40 hover:text-white hover:border-white/40 hover:bg-white/5 active:scale-95 active:bg-white/10 transition-all duration-150 rounded-sm cursor-pointer";
+function IconButton({ icon, label, href, external, onClick }: IconButtonProps) {
+  const baseClass = `
+  relative group inline-flex items-center justify-center
+  text-white/35 hover:text-white
+  transition-all duration-200
+  hover:scale-110
+`;
 
   const tooltip = (
     <span
       className="
-        pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2
-        font-mono text-[10px] tracking-widest uppercase text-white/60
-        bg-[#0a0a0a] border border-white/10 px-2 py-1 rounded-sm whitespace-nowrap
+        pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2
+        font-mono text-[10px] text-white/60
+        bg-[#0d1117] border border-white/10 px-2 py-1 rounded-sm whitespace-nowrap
         opacity-0 translate-y-1
         group-hover:opacity-100 group-hover:translate-y-0
         transition-all duration-200 ease-out
@@ -63,13 +75,13 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 max-w-6xl mx-auto">
-      {/* Subtle grid background */}
+    <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 max-w-6xl mx-auto relative z-10">
+      {/* ── Ambient glow near the hero text ────────────────────────── */}
       <div
-        className="pointer-events-none fixed inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-[0.07]"
         style={{
-          backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
+          background: "radial-gradient(circle, #818cf8 0%, transparent 70%)",
+          filter: "blur(60px)",
         }}
       />
 
@@ -122,15 +134,14 @@ export default function Hero() {
         className="flex items-center gap-2"
       >
         <IconButton
-          icon={<GithubIcon size={16} />}
+          icon={<GithubIcon size={35} />}
           label="GitHub"
           href="https://github.com/EkinFu8"
           external
         />
-        <IconButton icon={<LinkedinIcon size={16} />} label="LinkedIn" href="#" external />
-        <IconButton icon={<FileText size={16} />} label="Resume" href="/resume.pdf" external />
-
-        <IconButton icon={<Mail size={16} />} label="Contact" onClick={scrollToContact} />
+        <IconButton icon={<LinkedinIcon size={35} />} label="LinkedIn" href="#" external />
+        <IconButton icon={<FileText size={35} />} label="Resume" href="/resume.pdf" external />
+        <IconButton icon={<Mail size={35} />} label="Contact" onClick={scrollToContact} />
       </motion.div>
 
       {/* Scroll indicator */}

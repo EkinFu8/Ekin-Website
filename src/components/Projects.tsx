@@ -1,14 +1,16 @@
+// src/components/Projects.tsx  — drop-in replacement
 import { ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { PROJECTS } from "../data";
 import FadeIn from "./FadeIn";
 import { GithubIcon } from "./icons/BrandIcons";
+import Tag from "./Tag";
 
 export default function Projects() {
   const navigate = useNavigate();
 
   return (
-    <section id="projects" className="py-32 px-6 max-w-6xl mx-auto">
+    <section id="projects" className="py-32 px-6 max-w-6xl mx-auto relative z-10">
       <FadeIn>
         <div className="flex items-baseline gap-6 mb-16">
           <h2 className="text-xs font-mono text-white/20 tracking-[0.3em] uppercase">
@@ -18,14 +20,28 @@ export default function Projects() {
         </div>
       </FadeIn>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+      <div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-px border border-white/5"
+        style={{ backgroundColor: "rgba(255,255,255,0.04)" }}
+      >
         {PROJECTS.map((project, i) => {
           const Wrapper = project.detail ? "button" : "div";
           return (
             <FadeIn key={project.slug} delay={i * 0.1}>
               <Wrapper
                 type={project.detail ? "button" : undefined}
-                className={`bg-[#0a0a0a] p-8 h-full flex flex-col group hover:bg-white/[0.02] transition-colors duration-300 w-full text-left ${project.detail ? "cursor-pointer" : ""}`}
+                className={`
+                  h-full flex flex-col group w-full text-left
+                  p-8 transition-colors duration-300
+                  ${project.detail ? "cursor-pointer" : ""}
+                `}
+                style={{ backgroundColor: "var(--bg-card)" }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg-hover)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg-card)";
+                }}
                 onClick={project.detail ? () => navigate(`/projects/${project.slug}`) : undefined}
               >
                 <div className="flex items-start justify-between mb-6">
@@ -73,14 +89,10 @@ export default function Projects() {
                   {project.description}
                 </p>
 
+                {/* ── Coloured tags ── */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-[10px] text-white/25 border border-white/8 px-2 py-0.5 rounded-sm tracking-wide"
-                    >
-                      {tag}
-                    </span>
+                    <Tag key={tag}>{tag}</Tag>
                   ))}
                 </div>
 

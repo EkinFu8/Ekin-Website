@@ -59,7 +59,7 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   Backend: <Server size={14} />,
   "Database / Cloud": <Database size={14} />,
   Languages: <Terminal size={14} />,
-  Tools: <Globe size={14} />,
+  "Tools & DevOps": <Globe size={14} />,
 };
 
 const CATEGORY_STYLES: Record<string, string> = {

@@ -1,1 +1,121 @@
 @import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: white;
+  overflow-x: hidden;
+
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background: var(--bg);
+}
+
+/* Animated Mesh Background */
+
+.bg-mesh {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(129, 140, 248, 0.2), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.13), transparent 25%),
+    radial-gradient(circle at 15% 80%, rgba(168, 85, 247, 0.12), transparent 28%),
+    radial-gradient(circle at 85% 70%, rgba(34, 197, 94, 0.08), transparent 25%), var(--bg);
+
+  filter: blur(40px);
+
+  animation: meshMove 18s ease-in-out infinite alternate;
+}
+
+/* Dot Overlay */
+
+.bg-dots {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+
+  background-size: 28px 28px;
+
+  mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+
+  opacity: 0.7;
+}
+
+/* Ambient Vignette */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* Mesh Animation */
+
+@keyframes meshMove {
+  0% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(-4%, 3%, 0) scale(1.08);
+  }
+}
+
+/* Scrollbar Styling */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-mesh {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+button,
+a {
+  cursor: pointer;
+}
