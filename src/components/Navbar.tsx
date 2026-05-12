@@ -29,7 +29,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "backdrop-blur-md border-b border-white/5" : "bg-transparent"
         }`}
-        style={scrolled ? { backgroundColor: "rgba(8,11,16,0.90)" } : undefined}
+        style={scrolled ? { backgroundColor: "rgba(13,13,13,0.90)" } : undefined}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
@@ -77,7 +77,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             className="fixed top-16 left-0 right-0 z-40 border-b border-white/5 backdrop-blur-md"
-            style={{ backgroundColor: "rgba(8,11,16,0.95)" }}
+            style={{ backgroundColor: "rgba(13,13,13,0.95)" }}
           >
             <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3">
               {NAV_LINKS.map((link) => (
