@@ -26,7 +26,7 @@ export default function About() {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <div className="border border-white/5 p-8 space-y-6">
+          <div className="border border-white/[0.06] p-8 space-y-6">
             {[
               { label: "University", value: "WPI — Worcester Polytechnic Institute" },
               { label: "Year", value: "Junior · Class of 2028" },
