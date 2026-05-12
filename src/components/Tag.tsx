@@ -21,8 +21,8 @@ export default function Tag({ children }: TagProps) {
   return (
     <span
       className={`
-        rounded-full border px-2.5 py-1
-        font-mono text-[10px] tracking-wide
+  rounded-sm border px-2.5 py-[5px]
+  font-mono text-[11px] tracking-wide
         ${TAG_STYLES[children] ?? "border-white/10 bg-white/[0.04] text-white/50"}
       `}
     >
