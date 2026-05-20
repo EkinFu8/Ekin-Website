@@ -121,8 +121,7 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.45 }}
         className="text-white/40 text-base md:text-lg max-w-xl leading-relaxed mb-12 font-light"
       >
-        Junior CS student at WPI building full-stack applications, backend systems, and developer
-        tooling.
+        Junior CS student at WPI, mostly working on backend systems and full-stack apps.
       </motion.p>
 
       <motion.div

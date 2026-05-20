@@ -20,11 +20,10 @@ export default function Contact() {
             className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight"
             style={{ fontFamily: "'Georgia', serif" }}
           >
-            Let's work together.
+            Open to work.
           </h3>
           <p className="text-white/35 text-base leading-relaxed mb-12">
-            I'm actively looking for internship opportunities. Feel free to reach out — whether it's
-            about a role, a project, or just to chat.
+            Internships, summer 2027. Reach me at any of the links below.
           </p>
 
           <div className="space-y-4">
@@ -34,7 +33,11 @@ export default function Contact() {
                 label: "ekinchau@gmail.com",
                 href: "mailto:ekinchau@gmail.com",
               },
-              { icon: <LinkedinIcon size={15} />, label: "linkedin.com/in/ekinchau", href: "#" },
+              {
+                icon: <LinkedinIcon size={15} />,
+                label: "linkedin.com/in/ekinchau",
+                href: "#",
+              },
               {
                 icon: <GithubIcon size={15} />,
                 label: "github.com/EkinFu8",

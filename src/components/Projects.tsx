@@ -121,7 +121,7 @@ export default function Projects() {
               </div>
 
               <p className="font-mono text-[10px] text-white/20 group-hover:text-white/50 transition-colors">
-                View case study →
+                View project →
               </p>
             </div>
 
